@@ -100,7 +100,7 @@ class DEMRasterSourceSpec extends FunSpec with Matchers {
       ma shouldBe 2028.15 +- 1e3
     }
 
-    ignore("rasterizer bug") {
+    it("rasterizer bug") {
       val ge = new GridExtent[Long](Extent(481968.0, 4390186.0, 482718.32558139536, 4390537.069767442), 6.883720930232645, 6.883720930227462, 109, 51)
       val rs = DEMRasterSource(catalog).resampleToRegion(ge)
       GeoTiff(rs.read().get, rs.crs).write("/tmp/test.tiff")
